@@ -1,0 +1,41 @@
+@use "./mixins" as *;
+
+@font-face {
+    font-family: "Red Hat Display";
+    src: url(../../assets/fonts/Red_Hat_Display/RedHatDisplay-Medium.ttf) format("truetype"),
+    url(../../assets/fonts/Red_Hat_Display/Red_Hat_Display-Medium.woff2) format("woff2");
+    font-weight: 500;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: "Red Hat Display";
+    src: url(../../assets/fonts/Red_Hat_Display/Red_Hat_Display-Bold.woff2) format("woff2"),
+    url(../../assets/fonts/Red_Hat_Display/RedHatDisplay-Bold.ttf) format("truetype");
+    font-weight: 700;
+    font-style: normal;
+  }
+
+
+.page-header {
+    @include font (3.5rem, 700);
+}
+
+.section-header {
+  @include font (3rem, 700)
+}
+
+.paragraph {
+  @include font (1.125rem, 500);
+}
+
+.nav-tab {
+  @include font (1rem, 500);
+}
+
+.label {
+  @include font (1.125rem, 700);
+}
+
+
+  

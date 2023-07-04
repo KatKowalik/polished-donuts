@@ -1,0 +1,60 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.home-page {
+    &__hero-section {
+        width: 100%;
+        gap: 4rem;
+        @include flex(space-between);
+        padding: 2rem 8rem;
+    }
+    &__button-container {
+        @include flex (flex-start, flex-end);
+        gap: 4rem;
+    }
+    &__button {
+        @include size (100%, 100%);
+        background-color: $button-peach;
+        border: solid 2.5px black;
+        padding: auto;
+        position: absolute;
+        left: -10px;
+        top: -10px;
+        &:hover {
+            left: 0;
+            top: 0;
+            border: none;
+        }
+    }
+    &__button-shadow {
+        @include size(12rem, 3.75rem);
+        border: solid 2.5px black;
+        position: relative;
+        margin-left: .625rem;
+    }
+    &__hero-doodle {
+        padding-bottom: 1rem;
+    }
+    &__history-section {
+        background-color: $peach;
+        padding: 4rem 8rem;
+        @include flex(space-between);
+        gap: 4rem;
+    }
+    &__hungry-section {
+        padding: 6rem 8rem;
+        margin-bottom: 2rem;
+        text-align: center;
+        position: relative;
+        @include flex (center, center, column)
+    }
+    &__hungry-doodle {
+        position: absolute;
+        top: 6rem;
+        left: 30rem;
+        z-index: -1;
+    }
+    &__hungry-title {
+        margin-top: 6rem;
+    }
+}

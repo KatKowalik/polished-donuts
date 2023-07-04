@@ -1,0 +1,20 @@
+// Typography //
+
+@mixin font ($font-size, $font-weight) {
+    font-size: $font-size;
+    font-weight: $font-weight;
+}
+
+//Display flex//
+
+@mixin flex($justify-content, $align-items: normal, $direction: row) {
+    display: flex;
+    justify-content: $justify-content;
+    align-items: $align-items;
+    flex-direction: $direction;
+  }
+
+@mixin size ($width, $height) {
+    width: $width;
+    height: $height;
+}

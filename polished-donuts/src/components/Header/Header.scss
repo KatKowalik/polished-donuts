@@ -1,0 +1,23 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+
+.header {
+    @include flex(space-between, center);
+    padding: 0 8rem;
+    &__logo {
+        @include font(1.5rem, 700);
+        margin: 1rem 0;
+    }
+    &__nav {
+        @include flex (space-between);
+        width: 20%;
+        margin-top: 1rem;
+    }
+    &__link:link,
+    &__link:visited {
+        text-decoration: none;
+        list-style: none;
+        color: black;
+    }
+}

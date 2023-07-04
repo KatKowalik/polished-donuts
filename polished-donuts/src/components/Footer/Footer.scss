@@ -1,0 +1,9 @@
+@use "../../styles//partials/mixins" as *;
+@use "../../styles//partials/variables" as *;
+
+.footer {
+    background-color: $peach;
+    padding: 3rem 8rem;
+    @include flex(center, center);
+    gap: 6rem;
+}
