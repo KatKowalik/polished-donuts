@@ -6,4 +6,7 @@
     padding: 3rem 8rem;
     @include flex(center, center);
     gap: 6rem;
+    &__icon {
+        height: 2rem;
+    }
 }

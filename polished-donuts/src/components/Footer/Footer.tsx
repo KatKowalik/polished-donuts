@@ -12,10 +12,10 @@ const Footer = () => {
                 <img src={facebookIcon} alt="facebook logo" className="footer__icon"/>
             </Link>
             <Link to="https://www.instagram.com/" className="footer__link">
-                <img src={instagramIcon} alt="facebook logo" className="footer__icon"/>
+                <img src={instagramIcon} alt="instagram logo" className="footer__icon"/>
             </Link>
             <Link to="https://twitter.com/" className="footer__link">
-                <img src={twitterIcon} alt="facebook logo" className="footer__icon"/>
+                <img src={twitterIcon} alt="twitter logo" className="footer__icon"/>
             </Link>
         </footer>
     )
