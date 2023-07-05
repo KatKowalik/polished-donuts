@@ -8,12 +8,13 @@ const ProductCard = () => {
     return (
         <article className="product-card">
             <div className="product-card__text">
-                <h1 className="product-card__title section-header">
+                <h2 className="product-card__title section-header">
                     Pistachio Raspberry
-                </h1>
+                </h2>
                 <p className="product-card__description paragraph">
                     Experience a delightful fusion of flavors with our pistachio raspberry donut. Indulge in the rich, nutty essence of pistachio, perfectly complemented by the tangy sweetness of raspberry filling, all nestled within a fluffy, golden-brown donut.
                 </p>
+                <p className="product-card__contains label">Contains:</p>
                 <div className="product-card__icons">
                     <img src={glutenIcon} alt="gluten icon" className="product-card__icon"/>
                     <img src={milkIcon} alt="gluten icon" className="product-card__icon"/>

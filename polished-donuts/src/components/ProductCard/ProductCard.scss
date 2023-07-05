@@ -1,0 +1,19 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.product-card {
+    border-radius: 5px;
+    background-color: $green;
+    @include flex (space-between, center);
+    padding: 2rem 4rem;
+    &__title {
+        margin-top: 0;
+    }
+    &__description {
+        width: 27rem;
+    }
+    &__icons {
+        width: 30%;
+        @include flex (space-between);
+    }
+}
