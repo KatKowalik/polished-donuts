@@ -1,26 +1,30 @@
 import "./Products.scss";
-// import ProductCard from "../../components/ProductCard/ProductCard";
 import {Swiper, SwiperSlide} from "swiper/react";
-import { Navigation, Pagination, Mousewheel, Keyboard } from 'swiper/modules';
+import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/scss';
 import 'swiper/scss/navigation';
 import 'swiper/scss/effect-coverflow';
 import glutenIcon from "../../assets/icons/gluten-icon.svg";
 import milkIcon from "../../assets/icons/milk-icon.svg";
 import peanutIcon from "../../assets/icons/peanut-icon.svg";
-import donut from "../../assets/images/Pistachio-raspberry graphic.png";
 import axios from "axios";
 import { useState, useEffect } from "react";
 
 
+type Donut = {
+    name: string;
+    background: string;
+    description: string;
+}
+
 const Products = () => {
-    const [donuts, setDonuts] = useState([]);
+    const [donuts, setDonuts] = useState<Donut[]>([]);
     const imgURL = "http://localhost:8080/"
 
     useEffect(() => {
         const getDonuts = async () => {
-            try{
-              const donutsData = await axios.get("http://localhost:8080/donuts")
+            try {
+              const donutsData = await axios.get<Donut[]>("http://localhost:8080/donuts")
               setDonuts(donutsData.data)
             } catch (error) {
               console.log((error as Error).message)
@@ -34,15 +38,16 @@ const Products = () => {
             <Swiper 
                   cssMode={true}
                   navigation={
-                    { nextEl: '.swiper-button-next',
-                     prevEl: '.swiper-button-prev',
-                     clickable: true}
+                    { 
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
+                    }
                  }
                   pagination={true}
                   mousewheel={true}
                   keyboard={true}
                   slidesPerView={1}
-                  modules={[Navigation, Pagination, Mousewheel, Keyboard]}
+                  modules={[Navigation, Pagination]}
                   className="products__swiper">
                 { donuts.map(donut => {
                     return (
@@ -67,6 +72,10 @@ const Products = () => {
                 </SwiperSlide>
                 )
                 })}
+                <div className="slider-controler">
+                        <div className="swiper-button-prev slider-arrow" style={{color:"black"}}></div>
+                        <div className="swiper-button-next slider-arrow" style={{color:"black"}}></div>
+                    </div>
             </Swiper>
         </section>
     )

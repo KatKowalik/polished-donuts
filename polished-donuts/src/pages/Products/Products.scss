@@ -20,6 +20,9 @@
         width: 30%;
         @include flex (space-between);
     }
+    &__product-img {
+        padding-right: 2rem;
+    }
 }
 
 .green {
