@@ -2,14 +2,13 @@
 @use "../../styles/partials/variables" as *;
 
 .products {
-    padding: 2rem 8rem 6rem 8rem;
+    padding: 1rem 8rem 6rem 8rem;
 }
 
 .product-card {
     border-radius: 5px;
-    background-color: $green;
     @include flex (space-between, center);
-    padding: 2rem 4rem;
+    padding: 1rem 4rem;
     &__title {
         margin-top: 0;
     }
@@ -20,4 +19,17 @@
         width: 30%;
         @include flex (space-between);
     }
+}
+
+.green {
+    background-color: $green;
+}
+.pink {
+    background-color: $pink;
+}
+.beige {
+    background-color: $beige;
+}
+.blue {
+    background-color: $blue;
 }

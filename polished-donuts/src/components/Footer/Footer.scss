@@ -3,7 +3,7 @@
 
 .footer {
     background-color: $peach;
-    padding: 3rem 8rem;
+    padding: 2rem 8rem;
     @include flex(center, center);
     gap: 6rem;
     &__icon {

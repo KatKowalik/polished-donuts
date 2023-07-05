@@ -28,7 +28,7 @@ const Products = () => {
                   modules={[Navigation, Pagination, Mousewheel, Keyboard]}
                   className="products__swiper">
                 <SwiperSlide>
-                    <article className="product-card">
+                    <article className="product-card green">
                         <div className="product-card__text">
                             <h2 className="product-card__title section-header">
                                 Pistachio Raspberry
