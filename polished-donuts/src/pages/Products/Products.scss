@@ -7,6 +7,7 @@
 
 .product-card {
     border-radius: 5px;
+    height: 32.25rem;
     @include flex (space-between, center);
     padding: 1rem 4rem;
     &__title {
