@@ -9,6 +9,7 @@ import chocolate from "../../assets/sing-up-animation-elements/Chocolate bar.png
 import bigStarBottom from "../../assets/sing-up-animation-elements/Big-star-bottom.png";
 import mediumStarBottom from "../../assets/sing-up-animation-elements/Medium-star-bottom.png";
 import smallStarBottom from "../../assets/sing-up-animation-elements/Small-star-bottom.png";
+import backArrow from "../../assets/icons/back-arrow.svg";
 
 
 
@@ -28,9 +29,11 @@ const SignUpPage = () => {
                 <img src={smallStarBottom} alt="star" className="sign-up__small-star-bottom"/>
             </div>
             <form className="sign-up__form">
+                <h2 className="sign-up__title subtitle">Create an account</h2>
+                <p className="sign-up__paragraph paragraph-small">Already have an account? <span className="span"> Log in.</span></p>
                 <div className="sign-up__name-container">
-                    <div className="sign-up__input">
-                        <label htmlFor="first_name" className="sign-up__label">First name</label>
+                    <div className="sign-up__input input">
+                        <label htmlFor="first_name" className="sign-up__label paragraph-small">First name</label>
                         <input 
                             name="first_name" 
                             type="text" 
@@ -38,14 +41,43 @@ const SignUpPage = () => {
                             className="form-field"
                         />
                     </div>
-                    <div className="sign-up__input">
-                        <label htmlFor="last_name" className="sign-up__label">Last name</label>
+                    <div className="sign-up__input input">
+                        <label htmlFor="last_name" className="sign-up__label paragraph-small">Last name</label>
                         <input 
                             name="last_name" 
                             type="text" 
                             id="last_name" 
                             className="form-field"
                         />
+                    </div>
+                </div>
+                <div className="sign-up__input input">
+                    <label htmlFor="email" className="sign-up__label paragraph-small">Email</label>
+                    <input 
+                        name="email" 
+                        type="text" 
+                        id="email" 
+                        className="form-field"
+                    />
+                </div>
+                <div className="sign-up__input input">
+                    <label htmlFor="password" className="sign-up__label paragraph-small">Password</label>
+                    <input 
+                        name="password" 
+                        type="text" 
+                        id="password" 
+                        className="form-field"
+                    />
+                </div>
+                <div className="sign-up__buttons">
+                    <div className="sign-up__back-container">
+                        <img src={backArrow} alt="back arrow" className="sign-up__back-arrow"/>
+                        <p className="sign-up__back label">Back</p>
+                    </div>
+                    <div className="sign-up__button-shadow button-shadow">
+                        <button className="sign-up__button button label">
+                            Sign up!
+                        </button>
                     </div>
                 </div>
             </form>

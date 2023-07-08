@@ -4,72 +4,102 @@
 
 .sign-up {
     padding: 1rem 8rem;
+    margin-bottom: 5rem;
+    @include flex (space-between, center);
     &__animation-wrapper {
         width: 50%;
-        height: 80vh;
+        height: 32rem;
         position: relative;
     }
     &__big-star-top {
         position: absolute;
         z-index: 2;
-        left: 10%;
+        left: .625rem;
     }
     &__medium-star-top {
         position: absolute;
-        top: 20%;
-        left: 10%;
+        top: 5rem;
+        left: 8rem;
         z-index: 2;
     }
     &__small-star-top {
         position: absolute;
-        top: 5%;
-        left: 30%;
+        top: .625rem;
+        left: 10rem;
         z-index: 2;
     }
     &__background {
         position: absolute;
-        top: 0;
+        top: -2rem;
         left: 0;
         z-index: -1;
     }
-    &__chocolate {
-        position: absolute;
-        top: 35%;
-        left: 20%;
-        z-index: 2;
-    }
     &__donut {
         position: absolute;
-        top: 38%;
-        left: 35%;
+        top: 11rem;
+        left: 13rem;
         z-index: 1;
+    }
+    &__chocolate {
+        position: absolute;
+        top: 10rem;
+        left: 8rem;
+        z-index: 2;
     }
     &__cherry {
         position: absolute;
-        top: 50%;
-        left: 40%;
+        top: 16rem;
+        left: 15rem;
         z-index: 3;
     }
     &__big-star-bottom {
         position: absolute;
-        bottom: 10%;
-        right: 5%;
+        bottom: 3.5rem;
+        right: 2rem;
         z-index: 2;
     }
     &__medium-star-bottom {
         position: absolute;
         bottom: 0;
-        right: 15%;
+        right: 5.5rem;
         z-index: 2;
     }
     &__small-star-bottom {
         position: absolute;
-        bottom: 10%;
-        right: 30%;
+        bottom: 4rem;
+        right: 12rem;
         z-index: 2;
     }
     &__form {
-        height: 80vh;
         width: 50%;
+        padding: 2rem 4rem;
+        background-color: $green;
+        border-radius: 5px;
+        @include flex (flex-start, flex-start, column);
+        gap: 0.5rem;
+    }
+    &__title {
+        margin: 0;
+        align-self: center;
+    }
+    &__paragraph {
+        margin: 0;
+        padding-bottom: 1rem;
+        align-self: center;
+    }
+    &__name-container {
+        @include flex(space-between);
+        width: 100%;
+        gap: 1rem;
+    }
+    &__back-container {
+        @include flex (flex-start, center);
+        gap: 1rem;
+        width: 50%;
+    }
+    &__buttons {
+        @include flex (space-between, center);
+        width: 100%;
+        margin-top: 2rem;
     }
 }

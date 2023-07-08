@@ -1,6 +1,58 @@
 @use "./typography" as *;
+@use './mixins' as *;
+@use "./variables" as *;
 
 
 .active {
     font-weight: 700;
+}
+
+.button {
+    @include size (100%, 100%);
+    background-color: $button-peach;
+    border: solid 2.5px black;
+    padding: auto;
+    position: absolute;
+    left: -10px;
+    top: -10px;
+    &:hover {
+        left: 0;
+        top: 0;
+        border: none;
+    }
+    &:focus {
+        background-color: #ED723F;
+    }
+}
+
+.button-shadow {
+    @include size(12rem, 3.75rem);
+    border: solid 2.5px black;
+    position: relative;
+    margin-left: .625rem;
+}
+
+.span {
+    color: $button-peach;
+    font-weight: 700;
+}
+
+.input {
+    @include flex (flex-start, flex-start, column);
+    gap: 0.5rem;
+    width: 100%;
+}
+
+.form-field {
+    height: 2.5rem;
+    background-color: $white;
+    border: solid 2px black;
+    border-radius: 3px;
+    font-family: inherit;
+    padding: 0.5rem;
+    width: 100%;
+    &:focus {
+        border: solid 2px $button-peach;
+        outline: none;
+    }
 }

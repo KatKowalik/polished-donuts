@@ -25,8 +25,16 @@
   @include font (3rem, 700)
 }
 
+.subtitle {
+  @include font (2rem, 700);
+}
+
 .paragraph {
   @include font (1.125rem, 500);
+}
+
+.paragraph-small {
+  @include font (1rem, 500);
 }
 
 .nav-tab {
