@@ -25,6 +25,9 @@
             top: 0;
             border: none;
         }
+        &:focus {
+            background-color: #ED723F;
+        }
     }
     &__button-shadow {
         @include size(12rem, 3.75rem);

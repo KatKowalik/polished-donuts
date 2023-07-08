@@ -43,7 +43,13 @@ const Products = () => {
                         prevEl: '.swiper-button-prev',
                     }
                  }
-                  pagination={true}
+                  pagination={
+                    {
+                        clickable: true,
+                        el: ".swiper-pagination",
+                        hideOnClick: false,
+                    }
+                }
                   mousewheel={true}
                   keyboard={true}
                   slidesPerView={1}
@@ -75,7 +81,8 @@ const Products = () => {
                 <div className="slider-controler">
                         <div className="swiper-button-prev slider-arrow" style={{color:"black"}}></div>
                         <div className="swiper-button-next slider-arrow" style={{color:"black"}}></div>
-                    </div>
+                        <div className="swiper-pagination swiper-pagination-bullet"></div>
+                </div>
             </Swiper>
         </section>
     )

@@ -1,0 +1,75 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+
+.sign-up {
+    padding: 1rem 8rem;
+    &__animation-wrapper {
+        width: 50%;
+        height: 80vh;
+        position: relative;
+    }
+    &__big-star-top {
+        position: absolute;
+        z-index: 2;
+        left: 10%;
+    }
+    &__medium-star-top {
+        position: absolute;
+        top: 20%;
+        left: 10%;
+        z-index: 2;
+    }
+    &__small-star-top {
+        position: absolute;
+        top: 5%;
+        left: 30%;
+        z-index: 2;
+    }
+    &__background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+    }
+    &__chocolate {
+        position: absolute;
+        top: 35%;
+        left: 20%;
+        z-index: 2;
+    }
+    &__donut {
+        position: absolute;
+        top: 38%;
+        left: 35%;
+        z-index: 1;
+    }
+    &__cherry {
+        position: absolute;
+        top: 50%;
+        left: 40%;
+        z-index: 3;
+    }
+    &__big-star-bottom {
+        position: absolute;
+        bottom: 10%;
+        right: 5%;
+        z-index: 2;
+    }
+    &__medium-star-bottom {
+        position: absolute;
+        bottom: 0;
+        right: 15%;
+        z-index: 2;
+    }
+    &__small-star-bottom {
+        position: absolute;
+        bottom: 10%;
+        right: 30%;
+        z-index: 2;
+    }
+    &__form {
+        height: 80vh;
+        width: 50%;
+    }
+}
