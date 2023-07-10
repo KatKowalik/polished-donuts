@@ -3,9 +3,10 @@
 
 
 .sign-up {
-    padding: 1rem 8rem;
-    margin-bottom: 5rem;
+    padding: 2rem 8rem;
+    margin-bottom: 4rem;
     @include flex (space-between, center);
+    gap: 2rem;
     &__animation-wrapper {
         width: 50%;
         height: 32rem;
@@ -15,60 +16,69 @@
         position: absolute;
         z-index: 2;
         left: .625rem;
+        animation: sparkle 4s ease-in;
     }
     &__medium-star-top {
         position: absolute;
         top: 5rem;
         left: 8rem;
         z-index: 2;
+        animation: sparkle 4s ease-in;
     }
     &__small-star-top {
         position: absolute;
         top: .625rem;
         left: 10rem;
         z-index: 2;
+        animation: sparkle 4s ease-in;
     }
     &__background {
         position: absolute;
         top: -2rem;
-        left: 0;
+        left: -2rem;
         z-index: -1;
     }
     &__donut {
         position: absolute;
         top: 11rem;
-        left: 13rem;
+        left: 11rem;
         z-index: 1;
+        animation: shake 3s linear;
     }
     &__chocolate {
         position: absolute;
         top: 10rem;
-        left: 8rem;
+        left: 6rem;
         z-index: 2;
+        animation: shake 3s linear;
     }
     &__cherry {
         position: absolute;
         top: 16rem;
-        left: 15rem;
+        left: 13rem;
         z-index: 3;
+        animation: shake 3s linear;
     }
     &__big-star-bottom {
         position: absolute;
         bottom: 3.5rem;
         right: 2rem;
         z-index: 2;
+        animation: sparkle 4s ease-in;
     }
     &__medium-star-bottom {
         position: absolute;
         bottom: 0;
-        right: 5.5rem;
+        right: 7rem;
         z-index: 2;
+        animation: sparkle 4s ease-in;
     }
     &__small-star-bottom {
         position: absolute;
         bottom: 4rem;
         right: 12rem;
         z-index: 2;
+        animation: sparkle 4s ease-in;
     }
     &__form {
         width: 50%;
@@ -102,4 +112,39 @@
         width: 100%;
         margin-top: 2rem;
     }
+    &__back-arrow {
+        &:hover {
+            transform: translateX(-0.5rem);
+        }
+    }
 }
+
+//ANIMATIONS//
+
+@keyframes sparkle {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+  }
+
+  @keyframes shake {
+    0% {
+        transform: rotate(20deg)
+    }
+    25% {
+        transform: rotate(0deg)
+    }
+    50% {
+        transform: rotate(-20deg)
+    }
+    100% {
+        transform: rotate(0deg)
+    }
+  }
+
+
+
+  

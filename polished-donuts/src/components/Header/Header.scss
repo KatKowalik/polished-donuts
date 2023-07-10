@@ -5,12 +5,17 @@
 .header {
     @include flex(space-between, center);
     padding: 0 8rem;
+    &__nav-wrapper {
+        @include flex(space-between, center);
+        width: 25%
+    }
     &__logo {
         @include font(1.5rem, 700);
         margin: 1rem 0;
     }
     &__nav {
-        @include flex (space-between);
+        @include flex (space-between, center);
+        gap: 4rem;
         width: 20%;
         margin-top: 1rem;
     }
@@ -19,5 +24,24 @@
         text-decoration: none;
         list-style: none;
         color: black;
+        &:hover {
+            color: #ED723F;
+        }
     }
+    &__nav-buttons {
+        @include flex (space-between, center);
+        gap: 1rem;
+    }
+    &__login-button {
+       background-color: $button-peach;
+       &:hover {
+        background-color: #ED723F;
+       }
+    }
+    &__signup-button {
+        background-color: $blue;
+        &:hover {
+         background-color: #5C9F93;
+        }
+     }
 }

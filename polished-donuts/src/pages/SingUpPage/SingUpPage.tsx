@@ -10,6 +10,7 @@ import bigStarBottom from "../../assets/sing-up-animation-elements/Big-star-bott
 import mediumStarBottom from "../../assets/sing-up-animation-elements/Medium-star-bottom.png";
 import smallStarBottom from "../../assets/sing-up-animation-elements/Small-star-bottom.png";
 import backArrow from "../../assets/icons/back-arrow.svg";
+import { Link } from "react-router-dom";
 
 
 
@@ -30,7 +31,11 @@ const SignUpPage = () => {
             </div>
             <form className="sign-up__form">
                 <h2 className="sign-up__title subtitle">Create an account</h2>
-                <p className="sign-up__paragraph paragraph-small">Already have an account? <span className="span"> Log in.</span></p>
+                <p className="sign-up__paragraph paragraph-small">Already have an account? 
+                    <Link to="/log_in" className="sign-up__link link">
+                        <span className="span"> Log in.</span>
+                    </Link>
+                </p>
                 <div className="sign-up__name-container">
                     <div className="sign-up__input input">
                         <label htmlFor="first_name" className="sign-up__label paragraph-small">First name</label>
@@ -64,16 +69,18 @@ const SignUpPage = () => {
                     <label htmlFor="password" className="sign-up__label paragraph-small">Password</label>
                     <input 
                         name="password" 
-                        type="text" 
+                        type="password" 
                         id="password" 
                         className="form-field"
                     />
                 </div>
                 <div className="sign-up__buttons">
-                    <div className="sign-up__back-container">
-                        <img src={backArrow} alt="back arrow" className="sign-up__back-arrow"/>
-                        <p className="sign-up__back label">Back</p>
-                    </div>
+                    <Link to="/" className="sign-up__link link">
+                        <div className="sign-up__back-container">
+                            <img src={backArrow} alt="back arrow" className="sign-up__back-arrow"/>
+                            <p className="sign-up__back label">Back</p>
+                        </div>
+                    </Link>
                     <div className="sign-up__button-shadow button-shadow">
                         <button className="sign-up__button button label">
                             Sign up!

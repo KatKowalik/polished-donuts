@@ -15,6 +15,7 @@
     position: absolute;
     left: -10px;
     top: -10px;
+    cursor: pointer;
     &:hover {
         left: 0;
         top: 0;
@@ -55,4 +56,16 @@
         border: solid 2px $button-peach;
         outline: none;
     }
+}
+
+.link:link, 
+.link:visited {
+    text-decoration: none;
+    color: black;
+}
+
+.nav-button {
+    padding: 0.5rem 1rem;
+    border: solid 2px black;
+    @include font (1rem, 700);
 }
