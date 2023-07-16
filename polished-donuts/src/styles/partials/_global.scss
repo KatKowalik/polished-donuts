@@ -17,12 +17,13 @@
     top: -10px;
     cursor: pointer;
     &:hover {
+        transition-duration: 400ms;
         left: 0;
         top: 0;
         border: none;
     }
     &:focus {
-        background-color: #ED723F;
+        background-color: $dark-peach;
     }
 }
 
@@ -36,6 +37,9 @@
 .span {
     color: $button-peach;
     font-weight: 700;
+    &:hover {
+        color: $dark-peach;
+    }
 }
 
 .input {
@@ -69,3 +73,49 @@
     border: solid 2px black;
     @include font (1rem, 700);
 }
+
+
+//ANIMATIONS//
+
+@keyframes sparkle {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+  }
+
+  @keyframes shake {
+    0% {
+        transform: rotate(0deg)
+    }
+    25% {
+        transform: rotate(10deg)
+    }
+    50% {
+        transform: rotate(0deg)
+    }
+    75% {
+        transform: rotate(-10deg)
+    }
+    100% {
+        transform: rotate(0deg)
+    }
+  }
+
+  @keyframes jump {
+    0% {
+        transform: translateY(0)
+    }
+    25% {
+        transform: translateY(-0.5rem)
+    }
+    50% {
+        transform: translateY(0.25rem)
+    }
+    100% {
+        transform: translateY(0)
+    }
+  }
+  

@@ -1,14 +1,14 @@
 import "./SignUpPage.scss";
-import bigStarTop from "../../assets/sing-up-animation-elements/Big-star-top.png";
-import mediumStarTop from "../../assets/sing-up-animation-elements/Medium-star-top.png";
-import smallStarTop from "../../assets/sing-up-animation-elements/Small-star-top.png";
-import background from "../../assets/sing-up-animation-elements/Background-sing-up.svg";
-import cherry from "../../assets/sing-up-animation-elements/cherry.png";
-import donut from "../../assets/sing-up-animation-elements/donut-chocolate.png";
-import chocolate from "../../assets/sing-up-animation-elements/Chocolate bar.png";
-import bigStarBottom from "../../assets/sing-up-animation-elements/Big-star-bottom.png";
-import mediumStarBottom from "../../assets/sing-up-animation-elements/Medium-star-bottom.png";
-import smallStarBottom from "../../assets/sing-up-animation-elements/Small-star-bottom.png";
+import bigStarTop from "../../assets/animation-elements/Big-star-top.png";
+import mediumStarTop from "../../assets/animation-elements/Medium-star-top.png";
+import smallStarTop from "../../assets/animation-elements/Small-star-top.png";
+import background from "../../assets/animation-elements/Background-sing-up.svg";
+import cherry from "../../assets/animation-elements/cherry.png";
+import donut from "../../assets/animation-elements/donut-chocolate.png";
+import chocolate from "../../assets/animation-elements/Chocolate bar.png";
+import bigStarBottom from "../../assets/animation-elements/Big-star-bottom.png";
+import mediumStarBottom from "../../assets/animation-elements/Medium-star-bottom.png";
+import smallStarBottom from "../../assets/animation-elements/Small-star-bottom.png";
 import backArrow from "../../assets/icons/back-arrow.svg";
 import { Link } from "react-router-dom";
 
