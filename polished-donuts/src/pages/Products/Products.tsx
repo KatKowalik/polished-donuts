@@ -57,7 +57,7 @@ const Products = () => {
                   className="products__swiper">
                 { donuts.map(donut => {
                     return (
-                <SwiperSlide>
+                <SwiperSlide key={donut.background}>
                     <article className={`product-card ${donut.background}`}>
                         <div className="product-card__text">
                             <h2 className="product-card__title section-header">

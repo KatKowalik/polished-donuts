@@ -6,6 +6,9 @@ import Footer from './components/Footer/Footer';
 import Products from './pages/Products/Products';
 import SignUpPage from './pages/SingUpPage/SingUpPage';
 import LogInPage from './pages/LogInPage/LogInPage';
+import "@fontsource/red-hat-display/500.css";
+import "@fontsource/red-hat-display/700.css";
+
 
 function App() {
 
