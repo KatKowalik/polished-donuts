@@ -1,6 +1,122 @@
 @use "./typography" as *;
+@use './mixins' as *;
+@use "./variables" as *;
 
 
 .active {
     font-weight: 700;
 }
+
+.button {
+    @include size (100%, 100%);
+    background-color: $button-peach;
+    border: solid 2.5px black;
+    padding: auto;
+    position: absolute;
+    left: -10px;
+    top: -10px;
+    cursor: pointer;
+    &:hover {
+        transition-duration: 400ms;
+        left: 0;
+        top: 0;
+        border: none;
+    }
+    &:focus {
+        background-color: $dark-peach;
+    }
+}
+
+.button-shadow {
+    @include size(12rem, 3.75rem);
+    border: solid 2.5px black;
+    position: relative;
+    margin-left: .625rem;
+}
+
+.span {
+    color: $button-peach;
+    font-weight: 700;
+    &:hover {
+        color: $dark-peach;
+    }
+}
+
+.input {
+    @include flex (flex-start, flex-start, column);
+    gap: 0.5rem;
+    width: 100%;
+}
+
+.form-field {
+    height: 2.5rem;
+    background-color: $white;
+    border: solid 2px black;
+    border-radius: 3px;
+    font-family: inherit;
+    padding: 0.5rem;
+    width: 100%;
+    &:focus {
+        border: solid 2px $button-peach;
+        outline: none;
+    }
+}
+
+.link:link, 
+.link:visited {
+    text-decoration: none;
+    color: black;
+}
+
+.nav-button {
+    padding: 0.5rem 1rem;
+    width: 6.25rem;
+    border: solid 2px black;
+    @include font (1rem, 700);
+}
+
+
+//ANIMATIONS//
+
+@keyframes sparkle {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+  }
+
+  @keyframes shake {
+    0% {
+        transform: rotate(0deg)
+    }
+    25% {
+        transform: rotate(10deg)
+    }
+    50% {
+        transform: rotate(0deg)
+    }
+    75% {
+        transform: rotate(-10deg)
+    }
+    100% {
+        transform: rotate(0deg)
+    }
+  }
+
+  @keyframes jump {
+    0% {
+        transform: translateY(0)
+    }
+    25% {
+        transform: translateY(-0.5rem)
+    }
+    50% {
+        transform: translateY(0.25rem)
+    }
+    100% {
+        transform: translateY(0)
+    }
+  }
+  

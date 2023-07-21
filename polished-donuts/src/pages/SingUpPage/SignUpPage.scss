@@ -1,0 +1,123 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+
+.sign-up {
+    padding: 2rem 8rem;
+    margin-bottom: 4rem;
+    @include flex (space-between, center);
+    gap: 2rem;
+    &__animation-wrapper {
+        @include size (50%, 32rem);
+        position: relative;
+    }
+    &__big-star-top {
+        position: absolute;
+        z-index: 2;
+        left: .625rem;
+        animation: $sparkle;
+    }
+    &__medium-star-top {
+        position: absolute;
+        top: 5rem;
+        left: 8rem;
+        z-index: 2;
+        animation: $sparkle;
+    }
+    &__small-star-top {
+        position: absolute;
+        top: .625rem;
+        left: 10rem;
+        z-index: 2;
+        animation: $sparkle;
+    }
+    &__background {
+        position: absolute;
+        top: -2rem;
+        left: -2rem;
+        z-index: -1;
+        animation: $jump;
+    }
+    &__donut {
+        position: absolute;
+        top: 11rem;
+        left: 11rem;
+        z-index: 1;
+        animation: $shake;
+    }
+    &__chocolate {
+        position: absolute;
+        top: 10rem;
+        left: 6rem;
+        z-index: 2;
+        animation: $shake;
+    }
+    &__cherry {
+        position: absolute;
+        top: 16rem;
+        left: 13rem;
+        z-index: 3;
+        animation: $shake;
+    }
+    &__big-star-bottom {
+        position: absolute;
+        bottom: 3.5rem;
+        right: 2rem;
+        z-index: 2;
+        animation: $sparkle;
+    }
+    &__medium-star-bottom {
+        position: absolute;
+        bottom: 0;
+        right: 7rem;
+        z-index: 2;
+        animation: $sparkle;
+        ;
+    }
+    &__small-star-bottom {
+        position: absolute;
+        bottom: 4rem;
+        right: 12rem;
+        z-index: 2;
+        animation: $sparkle;
+    }
+    &__form {
+        width: 50%;
+        padding: 2rem 4rem;
+        background-color: $green;
+        border-radius: 5px;
+        @include flex (flex-start, flex-start, column);
+        gap: 0.5rem;
+    }
+    &__title {
+        margin: 0;
+        align-self: center;
+    }
+    &__paragraph {
+        margin: 0;
+        padding-bottom: 1rem;
+        align-self: center;
+    }
+    &__name-container {
+        @include flex(space-between);
+        width: 100%;
+        gap: 1rem;
+    }
+    &__back-container {
+        @include flex (flex-start, center);
+        gap: 1rem;
+        width: 50%;
+    }
+    &__buttons {
+        @include flex (space-between, center);
+        width: 100%;
+        margin-top: 2rem;
+    }
+    &__back-arrow {
+        &:hover {
+            transform: translateX(-0.5rem);
+            transition-duration: 400ms;
+        }
+    }
+}
+

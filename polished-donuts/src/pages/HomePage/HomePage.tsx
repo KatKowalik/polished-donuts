@@ -15,8 +15,8 @@ const HomePage = (): ReactElement => {
                     <p className="home-page__copy paragraph">Traditionally made Polish donuts, known as "pączki," are a delectable delicacy crafted with love and heritage. These deep-fried treats boast a golden, crispy exterior, while hiding a sweet and fluffy interior bursting with delightful fillings.</p>
                     <div className="home-page__button-container">
                         <Link to="/products" className="home-page__link">
-                            <div className="home-page__button-shadow">
-                                <button className="home-page__button label">
+                            <div className="home-page__button-shadow button-shadow">
+                                <button className="home-page__button button label">
                                     Try Our Donuts!
                                 </button>
                             </div>
@@ -36,8 +36,8 @@ const HomePage = (): ReactElement => {
             <section className="home-page__hungry-section">
                 <h2 className="home-page__hungry-title section-header">Hungry now?</h2>
                 <Link to="/products" className="home-page__link">
-                    <div className="home-page__button-shadow">
-                        <button className="home-page__button label">
+                    <div className="home-page__button-shadow button-shadow">
+                        <button className="home-page__button button label">
                             See Our Products!
                         </button>
                     </div>

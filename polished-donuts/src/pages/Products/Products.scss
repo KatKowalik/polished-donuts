@@ -7,8 +7,9 @@
 
 .product-card {
     border-radius: 5px;
+    height: 32.25rem;
     @include flex (space-between, center);
-    padding: 1rem 4rem;
+    padding: 1rem 6rem;
     &__title {
         margin-top: 0;
     }
@@ -19,6 +20,7 @@
         width: 30%;
         @include flex (space-between);
     }
+   
 }
 
 .green {
@@ -33,3 +35,4 @@
 .blue {
     background-color: $blue;
 }
+

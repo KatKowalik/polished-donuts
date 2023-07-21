@@ -1,0 +1,106 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+
+.log-in {
+    padding: 2rem 8rem;
+    @include flex (space-between, center);
+    margin-bottom: 2rem;
+    &__animation {
+        @include size (50%, 32rem);
+        position: relative;
+    }
+    &__large-star-top {
+        position: absolute;
+        top: 0;
+        right: 4rem;
+        z-index: 1;
+        animation: $sparkle;
+    }
+    &__medium-star-top {
+        position: absolute;
+        top: 8rem;
+        right: 7rem;
+        z-index: 1;
+        animation: $sparkle;
+    }
+    &__small-star-top {
+        position: absolute;
+        top: 2rem;
+        right: 12rem;
+        z-index: 1;
+        animation: $sparkle;
+    }
+    &__background {
+        position: absolute;
+        height: 80%;
+        top: 3rem;
+        right: 6rem;
+        z-index: -1;
+        animation: $jump;
+    }
+    &__donut {
+        position: absolute;
+        bottom: 8rem;
+        left: 9rem;
+        z-index: 2;
+        animation: $shake;
+    }
+    &__large-star-bottom {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: 1;
+        animation: $sparkle;
+    }
+    &__medium-star-bottom {
+        position: absolute;
+        bottom: 7rem;
+        left: 0;
+        z-index: 1;
+        animation: $sparkle;
+    }
+    &__small-star-bottom {
+        position: absolute;
+        bottom: 0;
+        left: 8rem;
+        z-index: 1;
+        animation: $sparkle;
+    }
+    &__form {
+        width: 50%;
+        padding: 4rem 6rem;
+        background-color: $blue;
+        border-radius: 5px;
+        @include flex (flex-start, center, column);
+    }
+    &__title,
+    &__paragraph {
+        margin: 0;
+        align-self: center;
+        padding-bottom: 1rem;
+    }
+    &__input {
+        margin: 0.5rem;
+    }
+    &__forgot-password {
+        margin: 0.5rem 0;
+        align-self: flex-end;
+    }
+    &__back-container {
+        @include flex (flex-start, center);
+        gap: 1rem;
+        width: 50%;
+    }
+    &__buttons {
+        @include flex (space-between, center);
+        width: 100%;
+        margin-top: 2rem;
+    }
+    &__back-arrow {
+        &:hover {
+            transform: translateX(-0.5rem);
+            transition-duration: 400ms;
+        }
+    }
+}

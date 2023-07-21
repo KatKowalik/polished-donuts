@@ -10,3 +10,17 @@
         height: 2rem;
     }
 }
+
+.footer-fixed {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: $peach;
+    padding: 2rem 8rem;
+    @include flex(center, center);
+    gap: 6rem;
+    &__icon {
+        height: 2rem;
+    }
+}
