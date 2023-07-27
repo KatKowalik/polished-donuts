@@ -8,7 +8,7 @@ import glutenIcon from "../../assets/icons/gluten-icon.svg";
 import milkIcon from "../../assets/icons/milk-icon.svg";
 import peanutIcon from "../../assets/icons/peanut-icon.svg";
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { useLoaderData } from "react-router-dom";
 
 
 export type Donut = {
@@ -17,21 +17,15 @@ export type Donut = {
     description: string;
 }
 
-const Products = () => {
-    const [donuts, setDonuts] = useState<Donut[]>([]);
-    const imgURL = "http://localhost:8080/"
+export const productLoader = async() => {
+    const donutsData = await axios.get<Donut[]>("http://localhost:8080/donuts");
+    const donuts = donutsData.data;
+    return donuts;
+}
 
-    useEffect(() => {
-        const getDonuts = async () => {
-            try {
-              const donutsData = await axios.get<Donut[]>("http://localhost:8080/donuts")
-              setDonuts(donutsData.data)
-            } catch (error) {
-              console.log((error as Error).message)
-            }
-          }
-          getDonuts();
-    }, []);
+const Products = () => {
+    const donuts = useLoaderData() as Donut[];
+    const imgURL = "http://localhost:8080/";
 
     return (
         <section className="products">
