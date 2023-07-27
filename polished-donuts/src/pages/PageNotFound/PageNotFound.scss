@@ -1,0 +1,7 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+
+
+.page-notfound {
+    @include flex (center, center, column);
+}

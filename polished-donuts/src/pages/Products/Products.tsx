@@ -11,7 +11,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 
 
-type Donut = {
+export type Donut = {
     name: string;
     background: string;
     description: string;
