@@ -1,6 +1,7 @@
 const mongooseCtrl = require("mongoose");
 const donuts = require("../schema/donuts");
 import { Request, Response } from "express";
+
 mongooseCtrl.connect("mongodb://localhost/polished-donutsdb");
 
 const getDonuts = async(_req: Request, res: Response) => {

@@ -1,28 +1,35 @@
 import './App.scss';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { 
+  Route,
+  createBrowserRouter,
+  createRoutesFromElements,
+  RouterProvider
+   } 
+  from 'react-router-dom';
+import { Layout } from './layouts/Layout';
 import HomePage from './pages/HomePage/HomePage';
-import Header from './components/Header/Header';
-import Footer from './components/Footer/Footer';
 import Products from './pages/Products/Products';
 import SignUpPage from './pages/SingUpPage/SingUpPage';
 import LogInPage from './pages/LogInPage/LogInPage';
+import PageNotFound from './pages/PageNotFound/PageNotFound';
 import "@fontsource/red-hat-display/500.css";
 import "@fontsource/red-hat-display/700.css";
 
+const router = createBrowserRouter( createRoutesFromElements(
+  <>
+    <Route path="/" element={<Layout/>} errorElement={<PageNotFound />}>
+      <Route path="/" element={<HomePage/>}></Route>
+      <Route path="/products" element={<Products/>}></Route>
+      <Route path="/sign_up" element={<SignUpPage/>}></Route> 
+      <Route path="/log_in" element={<LogInPage/>}></Route> 
+    </Route>
+  </>
+))
 
 function App() {
 
   return (
-    <BrowserRouter>
-      <Header/>
-      <Routes>
-        <Route path="/" element={<HomePage/>} />
-        <Route path="/products" element={<Products/>} />
-        <Route path="/sign_up" element={<SignUpPage/>} /> 
-        <Route path="/log_in" element={<LogInPage/>} />     
-      </Routes>
-      <Footer />
-    </BrowserRouter>
+    <RouterProvider router={router} />
   )
 }
 
