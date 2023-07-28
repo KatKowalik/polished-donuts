@@ -16,14 +16,12 @@ import "@fontsource/red-hat-display/500.css";
 import "@fontsource/red-hat-display/700.css";
 
 const router = createBrowserRouter( createRoutesFromElements(
-  <>
-    <Route path="/" element={<Layout/>} errorElement={<PageNotFound />}>
-      <Route path="/" element={<HomePage/>}></Route>
-      <Route path="/products" element={<Products/>} loader={productLoader}></Route>
-      <Route path="/sign_up" element={<SignUpPage/>}></Route> 
-      <Route path="/log_in" element={<LogInPage/>}></Route> 
+    <Route path="/" element={<Layout />} errorElement={<PageNotFound />}>
+      <Route path="/" element={<HomePage />}></Route>
+      <Route path="/products" element={<Products />} loader={productLoader}></Route>
+      <Route path="/sign_up" element={<SignUpPage />}></Route> 
+      <Route path="/log_in" element={<LogInPage />}></Route> 
     </Route>
-  </>
 ))
 
 function App() {
