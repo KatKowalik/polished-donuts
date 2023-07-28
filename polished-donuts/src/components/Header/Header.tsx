@@ -1,8 +1,7 @@
-import { ReactElement } from "react";
 import "./Header.scss";
 import { NavLink, Link } from "react-router-dom";
 
-const Header = (): ReactElement => {
+const Header = () => {
     return (
         <header className="header">
             <div className="header__nav-wrapper">
