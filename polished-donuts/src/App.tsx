@@ -8,7 +8,8 @@ import {
   from 'react-router-dom';
 import { Layout } from './layouts/Layout';
 import HomePage from './pages/HomePage/HomePage';
-import Products, { productLoader } from './pages/Products/Products';
+import Products from './pages/Products/Products';
+import { productLoader } from './loaders/ProductLoader';
 import SignUpPage from './pages/SingUpPage/SingUpPage';
 import LogInPage from './pages/LogInPage/LogInPage';
 import PageNotFound from './pages/PageNotFound/PageNotFound';

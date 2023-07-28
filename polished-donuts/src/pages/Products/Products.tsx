@@ -7,21 +7,10 @@ import 'swiper/scss/effect-coverflow';
 import glutenIcon from "../../assets/icons/gluten-icon.svg";
 import milkIcon from "../../assets/icons/milk-icon.svg";
 import peanutIcon from "../../assets/icons/peanut-icon.svg";
-import axios from "axios";
 import { useLoaderData } from "react-router-dom";
+import { Donut } from "../../types/types";
 
 
-export type Donut = {
-    name: string;
-    background: string;
-    description: string;
-}
-
-export const productLoader = async() => {
-    const donutsData = await axios.get<Donut[]>("http://localhost:8080/donuts");
-    const donuts = donutsData.data;
-    return donuts;
-}
 
 const Products = () => {
     const donuts = useLoaderData() as Donut[];
@@ -63,8 +52,8 @@ const Products = () => {
                             <p className="product-card__contains label">Contains:</p>
                             <div className="product-card__icons">
                                 <img src={glutenIcon} alt="gluten icon" className="product-card__icon"/>
-                                <img src={milkIcon} alt="gluten icon" className="product-card__icon"/>
-                                <img src={peanutIcon} alt="gluten icon" className="product-card__icon"/>
+                                <img src={milkIcon} alt="milk icon" className="product-card__icon"/>
+                                <img src={peanutIcon} alt="peanut icon" className="product-card__icon"/>
                             </div>
                         </div>
                         <img src={`${imgURL}${donut.background}.png`} alt="donut graphic" className="product-card__product-img"/>
