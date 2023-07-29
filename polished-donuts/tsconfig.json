@@ -8,6 +8,7 @@
 
     /* Bundler mode */
     "moduleResolution": "bundler",
+    "allowUmdGlobalAccess": true,
     "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
@@ -21,6 +22,14 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src", "vite.config.ts"],
+  "include": [
+    "src", 
+    "vite.config.ts", 
+    "**/*.ts",
+    "**/*.tsx",
+    "**/**/*.ts",
+    "**/**/*.tsx",
+    "<path-to-your-source>.ts",
+    "<path-to-your-source>.tsx",],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

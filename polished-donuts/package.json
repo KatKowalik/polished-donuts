@@ -8,14 +8,14 @@
     "build": "tsc && vite build",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "test": "vitest"
+    "test": "vitest",
+    "coverage": "vitest run --coverage"
   },
   "dependencies": {
     "@fontsource/red-hat-display": "^5.0.5",
     "@toolz/allow": "^1.1.5",
     "@toolz/is-a-regular-object-react": "^1.0.1",
     "axios": "^1.4.0",
-    "expect": "^29.6.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router": "^6.14.1",
