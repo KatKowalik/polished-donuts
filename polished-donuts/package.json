@@ -16,6 +16,7 @@
     "@toolz/allow": "^1.1.5",
     "@toolz/is-a-regular-object-react": "^1.0.1",
     "axios": "^1.4.0",
+    "passport-jwt-cookiecombo": "^1.0.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router": "^6.14.1",
