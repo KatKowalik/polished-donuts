@@ -4,7 +4,8 @@ const cors = require("cors");
 require("dotenv").config();
 const { PORT } = process.env;
 const mongoose = require("mongoose");
-const donutRoutes = require("./routes/donutRoutes")
+const donutRoutes = require("./routes/donutRoutes");
+const userRoutes = require("./routes/userRoutes");
 const JwtCookieComboStrategy = require('passport-jwt-cookiecombo');
 
 
@@ -14,6 +15,7 @@ app.use(express.json());
 app.use(express.static("./public"));
 
 app.use('/', donutRoutes);
+app.use("/", userRoutes)
 
 // passport.use(new JwtCookieComboStrategy({
 //     secretOrPublicKey: 'StRoNGs3crE7'

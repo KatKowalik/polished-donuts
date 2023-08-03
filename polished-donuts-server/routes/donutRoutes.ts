@@ -1,7 +1,7 @@
-const router = require("express").Router();
-const donutController = require("../controllers/controller");
+const donutRouter = require("express").Router();
+const donutController = require("../controllers/donutController");
 
-router.route("/donuts").get(donutController.getDonuts);
+donutRouter.route("/donuts").get(donutController.getDonuts);
 
 
-module.exports = router;
+module.exports = donutRouter;
