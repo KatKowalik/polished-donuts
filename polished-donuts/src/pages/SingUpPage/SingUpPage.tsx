@@ -15,6 +15,7 @@ import { Link } from "react-router-dom";
 
 
 const SignUpPage = () => {
+
     return (
         <section className="sign-up">
             <div className="sign-up__animation-wrapper">
@@ -29,7 +30,7 @@ const SignUpPage = () => {
                 <img src={mediumStarBottom} alt="star" className="sign-up__medium-star-bottom"/>
                 <img src={smallStarBottom} alt="star" className="sign-up__small-star-bottom"/>
             </div>
-            <form className="sign-up__form">
+            <form className="sign-up__form" onSubmit={handleSubmit}>
                 <h2 className="sign-up__title subtitle">Create an account</h2>
                 <p className="sign-up__paragraph paragraph-small">Already have an account? 
                     <Link to="/log_in" className="sign-up__link link">
@@ -44,6 +45,7 @@ const SignUpPage = () => {
                             type="text" 
                             id="first_name" 
                             className="form-field"
+                            value={}
                         />
                     </div>
                     <div className="sign-up__input input">
