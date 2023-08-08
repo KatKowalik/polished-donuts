@@ -20,7 +20,7 @@ const signUpUser = async(req: Request, res: Response) => {
             return res.status(404).send({ message: "User already exists" });
         }
  
-        const encryptedPassword =  await bcrypt.hash(password, 10)
+        const encryptedPassword =  await bcrypt.hashSync(password, 10)
     
         const newUser = {
             first_name,
@@ -28,8 +28,9 @@ const signUpUser = async(req: Request, res: Response) => {
             email,
             password: encryptedPassword,
         }
+        console.log(newUser);
         
-        const user = await users.insertOne(newUser);
+        await users.create(newUser);
         res.status(201).json({message: "User created successfully."})
 
     } catch {
@@ -40,7 +41,8 @@ const signUpUser = async(req: Request, res: Response) => {
 
 const getUsers = async(_req: Request, res: Response) => {
     try {
-       
+        const userData = await users.find();
+        res.status(200).json(userData);
     } catch (error) {
         res.status(500).send((error as Error).message);
     }
