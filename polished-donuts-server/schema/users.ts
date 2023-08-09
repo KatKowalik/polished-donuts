@@ -1,4 +1,5 @@
 import { Schema, model } from "mongoose";
+const mongoose = require('mongoose')
 
 
 interface IUser {
@@ -15,4 +16,4 @@ const userSchema = new Schema<IUser>({
     password: String
 });
 
-module.exports = model("users", userSchema)
+module.exports = mongoose.model("users", userSchema)

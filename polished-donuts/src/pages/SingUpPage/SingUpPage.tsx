@@ -11,10 +11,39 @@ import mediumStarBottom from "../../assets/animation-elements/Medium-star-bottom
 import smallStarBottom from "../../assets/animation-elements/Small-star-bottom.png";
 import backArrow from "../../assets/icons/back-arrow.svg";
 import { Link } from "react-router-dom";
+import { ChangeEvent, useState } from "react";
+import axios from "axios";
+import {toast} from "react-toastify"
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
 const SignUpPage = () => {
+    const [newUser, setNewUser] = useState({
+        first_name: "",
+        last_name: "",
+        email: "",
+        password: ""
+    });
+
+     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        axios.post("http://localhost:8080/users", newUser)
+        .then((response) => {
+            toast.success("User successfully signed-up!");
+            console.log(newUser)
+        })
+        .catch((error) => {
+            console.error("Error creating a user", error);
+        }); 
+     }
+
+     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+        e.preventDefault();
+        setNewUser({ ...newUser, [e.target.name]: e.target.value});
+    }
+
     return (
         <section className="sign-up">
             <div className="sign-up__animation-wrapper">
@@ -29,7 +58,7 @@ const SignUpPage = () => {
                 <img src={mediumStarBottom} alt="star" className="sign-up__medium-star-bottom"/>
                 <img src={smallStarBottom} alt="star" className="sign-up__small-star-bottom"/>
             </div>
-            <form className="sign-up__form">
+            <form className="sign-up__form" onSubmit={handleSubmit}>
                 <h2 className="sign-up__title subtitle">Create an account</h2>
                 <p className="sign-up__paragraph paragraph-small">Already have an account? 
                     <Link to="/log_in" className="sign-up__link link">
@@ -44,6 +73,8 @@ const SignUpPage = () => {
                             type="text" 
                             id="first_name" 
                             className="form-field"
+                            value={newUser.first_name}
+                            onChange={handleChange}
                         />
                     </div>
                     <div className="sign-up__input input">
@@ -53,6 +84,8 @@ const SignUpPage = () => {
                             type="text" 
                             id="last_name" 
                             className="form-field"
+                            value={newUser.last_name}
+                            onChange={handleChange}
                         />
                     </div>
                 </div>
@@ -63,6 +96,8 @@ const SignUpPage = () => {
                         type="text" 
                         id="email" 
                         className="form-field"
+                        value={newUser.email}
+                        onChange={handleChange}
                     />
                 </div>
                 <div className="sign-up__input input">
@@ -72,6 +107,8 @@ const SignUpPage = () => {
                         type="password" 
                         id="password" 
                         className="form-field"
+                        value={newUser.password}
+                        onChange={handleChange}
                     />
                 </div>
                 <div className="sign-up__buttons">
@@ -88,6 +125,7 @@ const SignUpPage = () => {
                     </div>
                 </div>
             </form>
+            <ToastContainer position="bottom-center" theme="colored" hideProgressBar={false} className="sign-up__notification"/>
         </section>
     )
 }
