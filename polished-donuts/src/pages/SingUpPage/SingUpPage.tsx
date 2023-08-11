@@ -16,10 +16,12 @@ import axios from "axios";
 import {toast} from "react-toastify"
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from "react-router-dom";
 
 
 
 const SignUpPage = () => {
+    const navigate = useNavigate();
     const [newUser, setNewUser] = useState({
         first_name: "",
         last_name: "",
@@ -32,7 +34,7 @@ const SignUpPage = () => {
         axios.post("http://localhost:8080/users", newUser)
         .then((response) => {
             toast.success("User successfully signed-up!");
-            console.log(newUser)
+            navigate("/log_in");
         })
         .catch((error) => {
             console.error("Error creating a user", error);
