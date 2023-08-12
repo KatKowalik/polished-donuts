@@ -9,22 +9,35 @@ const userRoutes = require("./routes/userRoutes");
 const passportSetup = require("./config/passport-setup");
 const cookieParser = require('cookie-parser');
 const passport = require('passport');
+const session = require('express-session');
+require('./config/passport-setup');
 
-
-mongoose.connect("mongodb://localhost/polished-donutsdb");
 app.use(cors());
 app.use(express.json());
+app.use(express.urlencoded({extended: true}))
 app.use(express.static("./public"));
 app.use(cookieParser());
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.use((req, res, next) => {
+    console.log(req.body.session)
+})
+
+const MongoStore = require('connect-mongo');
+
+app.use(session({
+    secret: process.env.SECRET_KEY,
+    resave: false,
+    saveUninitialized: true,
+    store: MongoStore.create({ mongoUrl: process.env.DB_STRING }),
+    cookie: {
+        maxAge: 1000 * 60 * 60 * 24
+    }
+}))
 
 app.use('/', donutRoutes);
 app.use("/", userRoutes)
-
-app.use('/api/v1', passport.authenticate('jwt-cookiecombo', {
-    session: false
-}), (req, res, next) => {
-    return next();
-});
 
 
 app.listen(PORT, () => {

@@ -1,13 +1,13 @@
 const mongooseCtrl = require("mongoose");
 const users = require("../schema/users");
 const bcrypt = require("bcryptjs");
-import { Request, Response } from "express";
+import { NextFunction, Request, Response } from "express";
 const passport = require('passport');
 const JwtCookieComboStrategy = require("passport-jwt-cookiecombo");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
-mongooseCtrl.connect("mongodb://localhost/polished-donutsdb");
+mongooseCtrl.connect(process.env.DB_STRING);
 
 
 const signUpUser = async(req: Request, res: Response) => {
@@ -43,51 +43,26 @@ const signUpUser = async(req: Request, res: Response) => {
         }}
 }
 
-passport.use(new JwtCookieComboStrategy({
-    secretOrPublicKey: process.env.SECRET_KEY,
-    jwtCookieName: 'jwt'
-}, 
+const loginUser = (req: Request, res: Response) => {
+    const { email } = req.body
+    jwt.sign({ user: email }, process.env.SECRET_KEY, (err: Error, token: any) => {
+        if (err) return res.json(err);
 
-(payload:any, done: Function) => {
-    return done(null, payload.user);
-})); 
+        // Send Set-Cookie header
+        res.cookie('jwt', token, {
+            httpOnly: true,
+            sameSite: true,
+            signed: true,
+            secure: true
+        });
 
-const loginUser = async(req: Request, res: Response) => {
-    try {
-        const { email, password } = req.body;
-        if (!req.body.email || !req.body.password) {
-            return res
-              .status(400)
-              .send({message: "Please fill in all fields"});
-            }
-        
-        const uniqueUser = await users!.findOne({ email: email });
-        if (!uniqueUser) {
-            return res.status(404).send({ message: "User doesn't exist. Please create an account." });
-        }
+        // Return json web token
+        return res.json({
+            jwt: token
+        });
 
-        const checkPassword = bcrypt.compareSync(password, uniqueUser.password);
-        if (!checkPassword) {
-            return res.status(400).json({ message: "Invalid password" });
-        }
-
-        passport.authenticate('jwt-cookiecombo', {
-            session: false
-        }), (req: Request, res: Response) => {
-            // Create and sign json web token with the user as payload
-            const token: any = jwt.sign({ user: req.body.email}, process.env.SECRET_KEY,);
-            return res
-                    .cookie('jwt', token, jwt.cookie)
-                    .json({
-                        jwt: token
-                    });
-                };
-    } catch { 
-        (error: Error) => {
-            res.status(500).send({ message: "Unable to log in user", error});
-        }
-    }  
 }
+    )};
 
 const getUsers = async(_req: Request, res: Response) => {
     try {

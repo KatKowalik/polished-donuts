@@ -1,5 +1,7 @@
 const userRouter = require("express").Router();
 const userController = require("../controllers/userController");
+const passport = require('passport')
+
 
 userRouter
     .route("/users")
@@ -8,6 +10,7 @@ userRouter
 
 userRouter
     .route("/login")
-    .post(userController.loginUser);
-    
+    .post(passport.authenticate('jwt-cookiecombo'), userController.loginUser)
+
+
 module.exports = userRouter;

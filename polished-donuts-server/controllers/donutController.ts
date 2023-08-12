@@ -1,8 +1,9 @@
 const mongooseCtrl = require("mongoose");
 const donuts = require("../schema/donuts");
 import { Request, Response } from "express";
+require("dotenv").config();
 
-mongooseCtrl.connect("mongodb://localhost/polished-donutsdb");
+mongooseCtrl.connect(process.env.DB_STRING);
 
 const getDonuts = async(_req: Request, res: Response) => {
     try {
