@@ -6,5 +6,8 @@ userRouter
     .post(userController.signUpUser)
     .get(userController.getUsers);
 
-
+userRouter
+    .route("/login")
+    .post(userController.loginUser);
+    
 module.exports = userRouter;
