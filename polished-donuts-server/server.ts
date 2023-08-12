@@ -36,6 +36,17 @@ app.use(session({
     }
 }))
 
+passport.serializeUser(function(user: any, cb: any) {
+    cb(null, user.id);
+});
+
+passport.deserializeUser(function(id: string, cb: any) {
+    users.findById(id, function (err: Error, user:any) {
+        if (err) { return cb(err); }
+        cb(null, user);
+    });
+});
+
 app.use('/', donutRoutes);
 app.use("/", userRoutes)
 

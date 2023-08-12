@@ -1,6 +1,6 @@
 const passport = require("passport");
 const mongooseCtrl = require("mongoose");
-const JwtCookieComboStrategy = require('passport-jwt-cookiecombo');
+const LocalStrategy = require('passport-local').Strategy;
 require("dotenv").config();
 const users = require("../schema/users");
 const bcrypt = require("bcryptjs")
@@ -30,7 +30,7 @@ const customFields = {
     passwordField: "password"
 }
 
-const strategy = new JwtCookieComboStrategy({secretOrPublicKey: SECRET_KEY}, verifyCallback, customFields, {session: false});
+const strategy = new LocalStrategy({secretOrPublicKey: SECRET_KEY}, verifyCallback, customFields, {session: false});
 
 
 passport.use(strategy);
