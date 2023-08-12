@@ -10,7 +10,7 @@ userRouter
 
 userRouter
     .route("/login")
-    .post(passport.authenticate('jwt-cookiecombo'), userController.loginUser)
+    .post(passport.authenticate('local'))
 
 
 module.exports = userRouter;
