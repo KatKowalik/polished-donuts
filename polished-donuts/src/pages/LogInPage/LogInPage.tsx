@@ -6,10 +6,37 @@ import mediumStar from "../../assets/animation-elements/Medium-star-top.png";
 import smallStar from "../../assets/animation-elements/Small-star-top.png";
 import background from "../../assets/animation-elements/login-background.png";
 import donut from "../../assets/animation-elements/rose-hip-donut.png";
+import { useNavigate } from "react-router-dom";
+import { useState, ChangeEvent } from "react";
+import axios from "axios";
 
 
 
 const LogInPage = () => {
+    const navigate = useNavigate();
+    const [activeUser, setActiveUser] = useState({
+        email: "",
+        password: ""
+    });
+
+    console.log(activeUser)
+
+     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        axios.post("http://localhost:8080/login", activeUser)
+        .then((response) => {
+            console.log(response)
+            navigate("/");
+        })
+        .catch((error) => {
+            console.error("Cannot log in the user", error);
+        }); 
+     }
+
+     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+        e.preventDefault();
+        setActiveUser({ ...activeUser, [e.target.name]: e.target.value});
+    }
     return(
         <section className="log-in">
             <div className="log-in__animation">
@@ -22,7 +49,7 @@ const LogInPage = () => {
                 <img src={mediumStar} alt="large star" className="log-in__medium-star-bottom"/>
                 <img src={smallStar} alt="large star" className="log-in__small-star-bottom"/>
             </div>
-            <form className="log-in__form">
+            <form className="log-in__form" onSubmit={handleSubmit}>
                 <h2 className="log-in__title subtitle">Welcome back!</h2>
                 <p className="log-in__paragraph paragraph-small">First time here? 
                     <Link to="/sign_up" className="log-in__link link">
@@ -36,6 +63,8 @@ const LogInPage = () => {
                         type="text" 
                         id="email" 
                         className="form-field"
+                        value={activeUser.email}
+                        onChange={handleChange}
                     />
                 </div>
                 <div className="log-in__input input">
@@ -45,6 +74,8 @@ const LogInPage = () => {
                         type="password" 
                         id="password" 
                         className="form-field"
+                        value={activeUser.password}
+                        onChange={handleChange}
                     />
                     <p className="log-in__forgot-password paragraph-small">Forgot password?</p>
                 </div>
