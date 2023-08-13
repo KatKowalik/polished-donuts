@@ -1,36 +1,58 @@
 const passport = require("passport");
-const mongooseCtrl = require("mongoose");
 const LocalStrategy = require('passport-local').Strategy;
-require("dotenv").config();
 const users = require("../schema/users");
-const bcrypt = require("bcryptjs")
+const bcrypt = require("bcryptjs");
 
-mongooseCtrl.connect(process.env.DB_STRING);
-const { SECRET_KEY } = process.env
+
 
 const verifyCallback = (email: string, password: string, done: any) => {
     users.findOne({ email: email })
     .then((user: any) => {
+        console.log(user)
         if (!user) {
-            return done(null, false);
+            return done(null, false, { message: "The user doesn't exist" });
         }
 
         const checkPassword = bcrypt.compareSync(password, user.password);
         if (checkPassword) {
-            return done(null, user)
+            console.log("Password is ok!", checkPassword);
+            return done(null, user);
         } else {
-            return done(null, false)
+            console.log("Wrong credentials");
+            return done(null, false, { message: "Password not correct" });
         }
     })
-    .catch((err: Error) => done(err))
-}
+    .catch((err: Error) => {
+        console.error(err);
+        done(err);
+    });
+};
 
 const customFields = {
     usernameField: "email",
     passwordField: "password"
-}
+};
 
-const strategy = new LocalStrategy({secretOrPublicKey: SECRET_KEY}, verifyCallback, customFields, {session: false});
+passport.serializeUser((user: any, done: any) => {
+    process.nextTick(() => {
+        done(null, user.id);
+    })});
 
+passport.deserializeUser((id: string, done: any) => {
+    process.nextTick (() => {
+        users.findById(id)
+        .then((user: any) => {
+            done(null, user);
+        })
+        .catch((err: Error) => {
+            console.error(err);
+            done(err);
+        });
+    })
+});
+
+const strategy = new LocalStrategy(customFields, verifyCallback);
 
 passport.use(strategy);
+
+module.exports = passport;

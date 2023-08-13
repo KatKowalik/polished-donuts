@@ -49,7 +49,7 @@ const LogInPage = () => {
                 <img src={mediumStar} alt="large star" className="log-in__medium-star-bottom"/>
                 <img src={smallStar} alt="large star" className="log-in__small-star-bottom"/>
             </div>
-            <form className="log-in__form" onSubmit={handleSubmit}>
+            <form className="log-in__form" onSubmit={handleSubmit} action="/login" method="post">
                 <h2 className="log-in__title subtitle">Welcome back!</h2>
                 <p className="log-in__paragraph paragraph-small">First time here? 
                     <Link to="/sign_up" className="log-in__link link">
