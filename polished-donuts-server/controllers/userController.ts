@@ -43,26 +43,26 @@ const signUpUser = async(req: Request, res: Response) => {
         }}
 }
 
-const loginUser = (req: Request, res: Response) => {
-    const { email } = req.body
-    jwt.sign({ user: email }, process.env.SECRET_KEY, (err: Error, token: any) => {
-        if (err) return res.json(err);
+// const loginUser = (req: Request, res: Response) => {
+//     const { email } = req.body
+//     jwt.sign({ user: email }, process.env.SECRET_KEY, (err: Error, token: any) => {
+//         if (err) return res.json(err);
 
-        // Send Set-Cookie header
-        res.cookie('jwt', token, {
-            httpOnly: true,
-            sameSite: true,
-            signed: true,
-            secure: true
-        });
+//         // Send Set-Cookie header
+//         res.cookie('jwt', token, {
+//             httpOnly: true,
+//             sameSite: true,
+//             signed: true,
+//             secure: true
+//         });
 
-        // Return json web token
-        return res.json({
-            jwt: token
-        });
+//         // Return json web token
+//         return res.json({
+//             jwt: token
+//         });
 
-}
-    )};
+// }
+//     )};
 
 const getUsers = async(_req: Request, res: Response) => {
     try {
@@ -74,4 +74,4 @@ const getUsers = async(_req: Request, res: Response) => {
 }
 
 
-module.exports = { getUsers, signUpUser, loginUser };
+module.exports = { getUsers, signUpUser };
