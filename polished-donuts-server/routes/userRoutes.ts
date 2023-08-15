@@ -11,14 +11,8 @@ userRouter
     .get(userController.getUsers);
 
 userRouter
-    .post('/login', (req: Request, res: Response, next: NextFunction) => {
-        passport.authenticate('local', {
-            session: true,
-            successRedirect: '/',
-            failureRedirect: '/login',
-            keepSessionInfo: true
-        })(req, res, next)
-    })
+    .route('/login')
+    .post()
 
 
 module.exports = userRouter;
