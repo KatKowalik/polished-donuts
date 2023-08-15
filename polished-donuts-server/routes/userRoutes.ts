@@ -4,6 +4,7 @@ const userController = require("../controllers/userController");
 const passport = require('passport');
 
 
+
 userRouter
     .route("/")
     .post(userController.signUpUser)
