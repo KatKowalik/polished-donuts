@@ -12,8 +12,12 @@ const session = require('express-session');
 require('./config/passport-setup');
 const bodyParser = require("body-parser");
 
+const corsOptions = {
+    origin: "http://localhost:5173",
+    credentials: true,
+};
 
-app.use(cors({credentials: true}));
+app.use(cors(corsOptions));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(express.static("./public"));

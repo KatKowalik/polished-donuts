@@ -4,7 +4,6 @@ const userController = require("../controllers/userController");
 const passport = require('passport');
 
 
-
 userRouter
     .route("/")
     .post(userController.signUpUser)
@@ -12,7 +11,8 @@ userRouter
 
 userRouter
     .route('/login')
-    .post()
+    .post(userController.loginUser)
+    .get(userController.authUser, userController.getUser)
 
 
 module.exports = userRouter;
