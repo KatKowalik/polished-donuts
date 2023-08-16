@@ -4,21 +4,15 @@ const userController = require("../controllers/userController");
 const passport = require('passport');
 
 
-
 userRouter
     .route("/")
     .post(userController.signUpUser)
     .get(userController.getUsers);
 
 userRouter
-    .post('/login', (req: Request, res: Response, next: NextFunction) => {
-        passport.authenticate('local', {
-            session: true,
-            successRedirect: '/',
-            failureRedirect: '/login',
-            keepSessionInfo: true
-        })(req, res, next)
-    })
+    .route('/login')
+    .post(userController.loginUser)
+    .get(userController.authUser, userController.getUser)
 
 
 module.exports = userRouter;
