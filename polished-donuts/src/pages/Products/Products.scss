@@ -18,7 +18,8 @@
     }
     &__icons {
         width: 30%;
-        @include flex (space-between);
+        @include flex (flex-start);
+        gap: 2rem;
     }
    
 }
@@ -36,3 +37,6 @@
     background-color: $blue;
 }
 
+.hidden {
+    display: none;
+}
