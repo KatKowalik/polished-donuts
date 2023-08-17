@@ -53,7 +53,7 @@ const Products = () => {
                             <div className="product-card__icons">
                                 <img src={glutenIcon} alt="gluten icon" className="product-card__icon"/>
                                 <img src={milkIcon} alt="milk icon" className="product-card__icon"/>
-                                <img src={peanutIcon} alt="peanut icon" className="product-card__icon"/>
+                                <img src={peanutIcon} alt="peanut icon" className={(donut.name === "Pistachio Raspberry")? "product-card__icon" : "product-card__icon hidden"}/>
                             </div>
                         </div>
                         <img src={`${imgURL}${donut.background}.png`} alt="donut graphic" className="product-card__product-img"/>
