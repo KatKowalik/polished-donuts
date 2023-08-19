@@ -15,6 +15,7 @@ import LogInPage from './pages/LogInPage/LogInPage';
 import PageNotFound from './pages/PageNotFound/PageNotFound';
 import "@fontsource/red-hat-display/500.css";
 import "@fontsource/red-hat-display/700.css";
+import { useContext } from 'react';
 
 const router = createBrowserRouter( createRoutesFromElements(
     <Route path="/" element={<Layout />} errorElement={<PageNotFound />}>
