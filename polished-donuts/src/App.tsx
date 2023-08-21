@@ -15,8 +15,6 @@ import LogInPage from './pages/LogInPage/LogInPage';
 import PageNotFound from './pages/PageNotFound/PageNotFound';
 import "@fontsource/red-hat-display/500.css";
 import "@fontsource/red-hat-display/700.css";
-import { useContext } from 'react';
-import axios from 'axios';
 
 
 const router = createBrowserRouter( createRoutesFromElements(
