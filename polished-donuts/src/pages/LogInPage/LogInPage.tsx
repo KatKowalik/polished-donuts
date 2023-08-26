@@ -19,14 +19,11 @@ const LogInPage = () => {
         password: ""
     });
 
-    console.log(activeUser)
-
      const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         axios.defaults.withCredentials = true;
         axios.post("http://localhost:8080/users/login", activeUser)
         .then((response) => {
-            console.log(response)
             navigate("/");
         })
         .catch((error) => {
