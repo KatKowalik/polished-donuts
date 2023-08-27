@@ -15,6 +15,8 @@ import LogInPage from './pages/LogInPage/LogInPage';
 import PageNotFound from './pages/PageNotFound/PageNotFound';
 import "@fontsource/red-hat-display/500.css";
 import "@fontsource/red-hat-display/700.css";
+import { AuthContextProvider } from './utils/context';
+
 
 
 const router = createBrowserRouter( createRoutesFromElements(
@@ -29,7 +31,7 @@ const router = createBrowserRouter( createRoutesFromElements(
 function App() {
   
   return (
-    <RouterProvider router={router} />
+      <RouterProvider router={router}/>
   )
 }
 

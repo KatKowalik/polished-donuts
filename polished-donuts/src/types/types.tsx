@@ -13,7 +13,8 @@ export type UserContext = {
         email: string, 
         password: string
     };
-    setActiveUser: React.Dispatch<React.SetStateAction<{email: string, password: string}>> | React.Dispatch<React.SetStateAction<null>>
+    setActiveUser: React.Dispatch<React.SetStateAction<{email: string, password: string}>> | React.Dispatch<React.SetStateAction<null>>;
+    dispatch: React.Dispatch<any>
 }
 
 export type LoginError = { message: string };

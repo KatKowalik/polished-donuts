@@ -2,43 +2,29 @@ import { useState, ChangeEvent, useContext } from "react";
 import { useNavigate } from "react-router";
 import axios from "axios";
 import { AuthContext } from "../utils/context";
+import { UserContext } from "../types/types";
+import { useAuthContext } from "./useAuth";
 
 
 
 export const useLogin = () => {
-    const context = useContext(AuthContext);
+    const navigate = useNavigate();
+    const [activeUser, setActiveUser] : [activeUser: UserContext["activeUser"], setActiveUser: UserContext["setActiveUser"]] = useState({
+        email: "",
+        password: ""
+    });
+    const { dispatch } = useAuthContext();
 
-    if(!context) {
-        throw Error("useLogin must be used inside AuthProvider")
+    const login = async (activeUser: UserContext["activeUser"]) => {
+        axios.defaults.withCredentials = true;
+        const response = await axios.post("http://localhost:8080/users/login", activeUser);
+        // console.log(response.data);
+        const user = await axios.get("http://localhost:8080/users/login");
+        console.log(user)
+        // setActiveUser(response.data)
+        dispatch({type: "LOGIN", payload: user})
     }
 
-    return context
-    // const navigate = useNavigate();
-    // const [activeUser, setActiveUser] = useState({
-    //     email: "",
-    //     password: ""
-    // });
-
-    // console.log(activeUser)
-
-    // const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    // e.preventDefault();
-    // axios.defaults.withCredentials = true;
-    // axios.post("http://localhost:8080/users/login", activeUser)
-    // .then((response) => {
-    //     console.log(response)
-    //     navigate("/");
-    // })
-    // .catch((error) => {
-    //     console.error("Cannot log in the user", error);
-    // }); 
-    // }
-
-    //  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    //     e.preventDefault();
-    //     setActiveUser({ ...activeUser, [e.target.name]: e.target.value});
-    // }
-
-    // return activeUser;
+    return { login };
 }
     
