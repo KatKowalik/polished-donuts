@@ -9,8 +9,11 @@ export type User = {
 };
 
 export type UserContext = {
-    activeUser: string | null;
-    setActiveUser: React.Dispatch<React.SetStateAction<string>> | React.Dispatch<React.SetStateAction<null>>
+    activeUser: {
+        email: string, 
+        password: string
+    };
+    setActiveUser: React.Dispatch<React.SetStateAction<{email: string, password: string}>> | React.Dispatch<React.SetStateAction<null>>
 }
 
 export type LoginError = { message: string };
