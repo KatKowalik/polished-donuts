@@ -6,29 +6,25 @@ import mediumStar from "../../assets/animation-elements/Medium-star-top.png";
 import smallStar from "../../assets/animation-elements/Small-star-top.png";
 import background from "../../assets/animation-elements/login-background.png";
 import donut from "../../assets/animation-elements/rose-hip-donut.png";
-import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../utils/context";
+import { useContext } from "react";
+import { useLogin } from "../../hooks/useLogin";
 import { useState, ChangeEvent } from "react";
-import axios from "axios";
 
 
 
 const LogInPage = () => {
-    const navigate = useNavigate();
+    const value = useContext(AuthContext);
+    const { login } = useLogin();
+    // const navigate = useNavigate();
     const [activeUser, setActiveUser] = useState({
         email: "",
         password: ""
     });
 
-     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        axios.defaults.withCredentials = true;
-        axios.post("http://localhost:8080/users/login", activeUser)
-        .then((response) => {
-            navigate("/");
-        })
-        .catch((error) => {
-            console.error("Cannot log in the user", error);
-        }); 
+        await login(activeUser)
      }
 
      const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
