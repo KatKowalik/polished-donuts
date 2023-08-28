@@ -89,8 +89,14 @@ const authUser = (req: Request, res: Response, next: NextFunction) => {
     }
 }
 
-const getUser = (req: Request, res: Response) => {
-    return res.json({user: req.body.user})
+const getUser = async (req: Request, res: Response) => {
+    const activeUser = await users.findOne({email: req.body.user});
+    const activeData = {
+        first_name: activeUser.first_name,
+        last_name: activeUser.last_name,
+        email: activeUser.email
+    }
+    return res.json({user: activeData})
 }
 
 const getUsers = async(_req: Request, res: Response) => {
