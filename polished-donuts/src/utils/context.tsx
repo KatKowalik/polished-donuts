@@ -1,4 +1,4 @@
-import { createContext, useState, useContext, useReducer, ChangeEvent } from "react";
+import { createContext, useState, useContext, useReducer, ChangeEvent, useEffect } from "react";
 import { useNavigate } from "react-router";
 import axios from "axios";
 import { UserContext } from "../types/types";
@@ -21,6 +21,10 @@ export const AuthContextProvider = ({ children }: { children: React.ReactNode}) 
     const [state, dispatch] = useReducer(authReducer, { 
         user: null
     })
+
+    useEffect(() => {
+        
+    }, [])
     
     console.log(state)
     return (
