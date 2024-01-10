@@ -1,12 +1,12 @@
 import { Controller, Get } from '@nestjs/common';
 import { DonutService } from './donuts.service';
 
-@Controller('products')
+@Controller('donuts')
 export class DonutsController {
   constructor(private readonly donutService: DonutService) {}
 
   @Get()
-  getDonuts() {
-    this.donutService
+  async getDonuts() {
+    return await this.donutService.getAllDonuts();
   }
 }
