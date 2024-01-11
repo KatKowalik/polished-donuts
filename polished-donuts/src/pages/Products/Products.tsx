@@ -9,12 +9,16 @@ import milkIcon from "../../assets/icons/milk-icon.svg";
 import peanutIcon from "../../assets/icons/peanut-icon.svg";
 import { useLoaderData } from "react-router-dom";
 import { Donut } from "../../types/types";
+import beige from "../../assets/beige.png";
+import blue from "../../assets/blue.png";
+import green from "../../assets/green.png";
+import pink from "../../assets/pink.png";
 
 
 
 const Products = () => {
     const donuts = useLoaderData() as Donut[];
-    const imgURL = "http://localhost:8080/";
+    const images = {beige: beige, blue: blue, green: green, pink: pink};
 
     return (
         <section className="products">
@@ -56,7 +60,7 @@ const Products = () => {
                                 <img src={peanutIcon} alt="peanut icon" className={(donut.name === "Pistachio Raspberry")? "product-card__icon" : "product-card__icon hidden"}/>
                             </div>
                         </div>
-                        <img src={`${imgURL}${donut.background}.png`} alt="donut graphic" className="product-card__product-img"/>
+                        <img src={`${images[`${donut.background}`]}`} alt="donut graphic" className="product-card__product-img"/>
                     </article>
                 </SwiperSlide>
                 )

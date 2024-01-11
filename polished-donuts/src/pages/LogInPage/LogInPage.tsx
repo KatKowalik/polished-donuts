@@ -10,13 +10,14 @@ import { AuthContext } from "../../utils/context";
 import { useContext } from "react";
 import { useLogin } from "../../hooks/useLogin";
 import { useState, ChangeEvent } from "react";
+import { useNavigate } from "react-router-dom";
 
 
 
 const LogInPage = () => {
     const value = useContext(AuthContext);
     const { login } = useLogin();
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
     const [activeUser, setActiveUser] = useState({
         email: "",
         password: ""
@@ -24,7 +25,8 @@ const LogInPage = () => {
 
      const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        await login(activeUser)
+        await login(activeUser);
+        navigate("/")
      }
 
      const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
