@@ -16,10 +16,16 @@ export const useLogin = () => {
     const { dispatch } = useAuthContext();
 
     const login = async (activeUser: UserContext["activeUser"]) => {
-        axios.defaults.withCredentials = true;
-        const response = await axios.post("http://localhost:8080/users/login", activeUser);
-        // console.log(response.data);
-        const user = await axios.get("http://localhost:8080/users/login");
+        
+        const response = await axios.post("http://localhost:3000/users/login", activeUser);
+        console.log(response.data);
+        const token = response.data.access_token;
+        console.log(token)
+        const user = await axios.get("http://localhost:3000/users/profile", {
+            headers: {
+              Authorization: `Bearer ${token}`
+            }
+          });
         console.log(user)
         // setActiveUser(response.data)
         dispatch({type: "LOGIN", payload: user})
