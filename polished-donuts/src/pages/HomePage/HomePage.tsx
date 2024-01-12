@@ -5,6 +5,7 @@ import circleDoodle from "../../assets/images/circle-doodle.png";
 import arrowDoodle from "../../assets/images/arrow-doodle.png";
 import { ReactElement } from "react";
 import { Link } from "react-router-dom";
+import Footer from "../../components/Footer/Footer";
 
 const HomePage = (): ReactElement => {
     return (
@@ -44,6 +45,7 @@ const HomePage = (): ReactElement => {
                 </Link>
                 <img src={circleDoodle} alt="doodle circle" className="home-page__hungry-doodle"/>
             </section>
+            <Footer />
         </div>
     )
 }

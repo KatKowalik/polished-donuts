@@ -7,7 +7,7 @@ import twitterIcon from "../../assets/icons/twitter-icon.svg";
 
 const Footer = () => {
     return (
-        <footer className="footer-fixed">
+        <footer className="footer">
             <Link to="https://www.facebook.com/" className="footer__link">
                 <img src={facebookIcon} alt="facebook logo" className="footer__icon"/>
             </Link>

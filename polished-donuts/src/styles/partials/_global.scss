@@ -14,9 +14,9 @@
     cursor: pointer;
     &:hover {
         transition-duration: 400ms;
+        border: none;
         left: 0;
         top: 0;
-        border: none;
     }
     &:focus {
         background-color: $dark-peach;

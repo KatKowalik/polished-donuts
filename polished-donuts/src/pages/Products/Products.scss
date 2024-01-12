@@ -2,7 +2,12 @@
 @use "../../styles/partials/variables" as *;
 
 .products {
-    padding: 1rem 8rem 6rem 8rem;
+    padding-inline: 8rem;
+    padding-block: 2rem;
+    height: calc(100vh - 64px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .product-card {
