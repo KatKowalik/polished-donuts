@@ -26,8 +26,8 @@ let UsersController = class UsersController {
     getProfile(req) {
         return req.user;
     }
-    signup() {
-        return this.userService.createUser();
+    signup(signUpDto) {
+        return this.userService.createUser(signUpDto.first_name, signUpDto.last_name, signUpDto.email, signUpDto.password);
     }
 };
 exports.UsersController = UsersController;
@@ -49,8 +49,9 @@ __decorate([
 ], UsersController.prototype, "getProfile", null);
 __decorate([
     (0, common_1.Post)('signup'),
+    __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
+    __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", void 0)
 ], UsersController.prototype, "signup", null);
 exports.UsersController = UsersController = __decorate([

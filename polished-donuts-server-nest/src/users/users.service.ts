@@ -31,5 +31,22 @@ export class UserService {
     };
   }
 
-  createUser() {}
+  async createUser(first_name: string, last_name: string, email: string, pass: string) {
+    if(!first_name || !last_name || !email || !pass) {
+      throw new Error('All fields mandatory')
+    }
+
+    const hashedPassword = await bcrypt.hash(pass, 10);
+
+    const newUser = {
+      first_name: first_name,
+      last_name: last_name,
+      email: email,
+      password: hashedPassword,
+    }
+
+    this.userModel.create(newUser)
+
+    return newUser;
+  }
 }

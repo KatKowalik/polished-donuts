@@ -33,5 +33,10 @@ export declare class UserService {
     loginUser(email: string, pass: string): Promise<{
         access_token: string;
     }>;
-    createUser(): void;
+    createUser(first_name: string, last_name: string, email: string, pass: string): Promise<{
+        first_name: string;
+        last_name: string;
+        email: string;
+        password: string;
+    }>;
 }
