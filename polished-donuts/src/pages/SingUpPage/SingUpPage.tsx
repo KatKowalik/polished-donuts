@@ -31,7 +31,7 @@ const SignUpPage = () => {
 
      const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        axios.post("http://localhost:8080/users", newUser)
+        axios.post("http://localhost:3000/users/signup", newUser)
         .then((response) => {
             toast.success("User successfully signed-up!");
             navigate("/log_in");

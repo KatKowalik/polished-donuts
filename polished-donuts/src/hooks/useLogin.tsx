@@ -18,15 +18,12 @@ export const useLogin = () => {
     const login = async (activeUser: UserContext["activeUser"]) => {
         
         const response = await axios.post("http://localhost:3000/users/login", activeUser);
-        console.log(response.data);
         const token = response.data.access_token;
-        console.log(token)
         const user = await axios.get("http://localhost:3000/users/profile", {
             headers: {
               Authorization: `Bearer ${token}`
             }
           });
-        console.log(user)
         // setActiveUser(response.data)
         dispatch({type: "LOGIN", payload: user})
     }

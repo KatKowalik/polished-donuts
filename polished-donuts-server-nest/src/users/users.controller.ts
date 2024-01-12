@@ -28,7 +28,7 @@ export class UsersController {
   }
 
   @Post('signup')
-  signup() {
-    return this.userService.createUser();
+  signup(@Body() signUpDto: Record<string, any>) {
+    return this.userService.createUser(signUpDto.first_name, signUpDto.last_name, signUpDto.email, signUpDto.password);
   }
 }

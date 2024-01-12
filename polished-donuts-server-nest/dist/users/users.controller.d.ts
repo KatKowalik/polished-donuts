@@ -6,5 +6,10 @@ export declare class UsersController {
         access_token: string;
     }>;
     getProfile(req: any): any;
-    signup(): void;
+    signup(signUpDto: Record<string, any>): Promise<{
+        first_name: string;
+        last_name: string;
+        email: string;
+        password: string;
+    }>;
 }
